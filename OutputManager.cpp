@@ -213,7 +213,8 @@ DUPL_RETURN OUTPUTMANAGER::InitOutput(HWND Window, INT SingleOutput, _Out_ UINT*
     }
 
     GetWindowRect(m_WindowHandle, &WindowRect);
-    MoveWindow(m_WindowHandle, WindowRect.left, WindowRect.top, (DeskBounds->right - DeskBounds->left), (DeskBounds->bottom - DeskBounds->top), TRUE);
+    MoveWindow(m_WindowHandle,2560,0,1920,1080,true);
+    //MoveWindow(m_WindowHandle, WindowRect.left, WindowRect.top, (DeskBounds->right - DeskBounds->left), (DeskBounds->bottom - DeskBounds->top), TRUE);
 
     return Return;
 }
