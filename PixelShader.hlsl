@@ -24,20 +24,27 @@ struct PS_INPUT
 
 float4 PS(PS_INPUT input) : SV_Target
 {
+
     // Define texel size
     float2 texelSize = 1.0 / float2(2560, 1440); // Replace with your actual screen resolution or the desired resolution
+    float4 color;
     if (input.Tex.x > 0.3)
     {
-        return tx.Sample(samLinear, input.Tex + float2(0.0, 0.0));
+        color = tx.Sample(samLinear, input.Tex + float2(0.0, 0.0));
+        //color.r = tx.Sample(samLinear, input.Tex + float2(0.0, 0.0)).a;
+        return color;
     }
     // Calculate average color
-    float4 color = tx.Sample(samLinear, input.Tex + float2(-texelSize.x, 0.0));
+    color = tx.Sample(samLinear, input.Tex + float2(-texelSize.x, 0.0));
     color += tx.Sample(samLinear, input.Tex + float2(texelSize.x, 0.0));
     color += tx.Sample(samLinear, input.Tex + float2(0.0, -texelSize.y));
     color += tx.Sample(samLinear, input.Tex + float2(0.0, 0.0));
     color += tx.Sample(samLinear, input.Tex + float2(0.0, texelSize.y));
     color /= 5.0;
 
+    //color.a=0.0;
+
+    //color.r= tx.Sample(samLinear, input.Tex + float2(0.0, 0.0)).a;
 
     return color;
 }

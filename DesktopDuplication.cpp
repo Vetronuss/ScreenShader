@@ -257,7 +257,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
     DestroyCursor(Cursor);
 
     //enable transparency
-    SetLayeredWindowAttributes(WindowHandle, RGB(255, 255, 255), 128, LWA_ALPHA);
+    SetLayeredWindowAttributes(WindowHandle, RGB(255, 255, 255), 128, LWA_COLORKEY);
 
     ShowWindow(WindowHandle, nCmdShow);
     UpdateWindow(WindowHandle);
@@ -398,7 +398,7 @@ void ShowHelp()
 //
 bool ProcessCmdline(_Out_ INT* Output)
 {
-    *Output = -1;
+    *Output = 0;
 
     // __argv and __argc are global vars set by system
     for (UINT i = 1; i < static_cast<UINT>(__argc); ++i)

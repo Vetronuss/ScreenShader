@@ -65,6 +65,9 @@ DUPL_RETURN DISPLAYMANAGER::ProcessFrame(_In_ FRAME_DATA* Data, _Inout_ ID3D11Te
 {
     DUPL_RETURN Ret = DUPL_RETURN_SUCCESS;
 
+    m_DeviceContext->CopyResource(SharedSurf, Data->Frame);
+
+    /*
     // Process dirties and moves
     if (Data->FrameInfo.TotalMetadataBufferSize)
     {
@@ -85,6 +88,7 @@ DUPL_RETURN DISPLAYMANAGER::ProcessFrame(_In_ FRAME_DATA* Data, _Inout_ ID3D11Te
             Ret = CopyDirty(Data->Frame, SharedSurf, reinterpret_cast<RECT*>(Data->MetaData + (Data->MoveCount * sizeof(DXGI_OUTDUPL_MOVE_RECT))), Data->DirtyCount, OffsetX, OffsetY, DeskDesc);
         }
     }
+    */
 
     return Ret;
 }
