@@ -1,0 +1,2 @@
+C:\Users\Cooper\Desktop\DXGI desktop duplication sample\[C++]-DXGI desktop duplication sample\C++\Debug\DesktopDuplication.exe
+C:\Users\Coope\Downloads\C++ - Copy\C++ - Copy\Debug\DesktopDuplication.exe
